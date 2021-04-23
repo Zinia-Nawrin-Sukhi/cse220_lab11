@@ -1,0 +1,26 @@
+public class Task3{
+  public static Node buildTree(Object[]a,int i){
+    if(i<=a.length-1 && a[i]!=null){
+      return new Node(a[i],buildTree(a,2*i),buildTree(a,2*i+1));
+    }else{
+      return null;
+    }
+  }
+  public static void printPreOrder(Node root){
+    if(root==null){}
+    else{
+       System.out.println(root.val);
+      printPreOrder(root.left);
+//      System.out.println(root.val);
+      printPreOrder(root.right);
+    }
+  }
+  public static void main(String[]args){
+    Object[]array={null,50,25,75,10,30,60,90,-5,null,29,null,
+      55,70,null,null,null,9,null,null,27,null,null,null,52,57,
+    60,null,null,null,null,null,null,null,0,null,null,null
+    ,null,null,26,28};
+    Node root=buildTree(array,1);
+    printPreOrder(root);
+  }
+}
